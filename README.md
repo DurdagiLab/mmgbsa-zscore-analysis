@@ -1,21 +1,21 @@
 # MM/GBSA Z-Score Analysis Tool
-A Python-based tool for statistical post-processing of MM/GBSA binding free-energy results in virtual screening studies.  
-This script computes Z-scores for MM/GBSA energies and filters ligands based on user-defined significance thresholds.  
-It also produces a summary PDF table and high-resolution visualizations suitable for publication or internal reporting.
+A Python-based utility for statistical post-processing of MM/GBSA binding free energy results in virtual screening (VS) studies. This script calculates Z-scores for MM/GBSA energies, filters ligands based on user-defined statistical thresholds, and generates a structured PDF summary and high-resolution plots suitable for publication or internal reporting.
 
 # Description
-The **MM/GBSA Z-Score Analysis Tool** processes binding free energy results (CSV format) from MM/GBSA calculations and evaluates the statistical significance of each compound's binding energy. The tool is particularly useful for prioritizing hits following molecular docking and MM/GBSA rescoring workflows in virtual screening campaigns. The workflow includes:
-- Robust parsing of numeric fields, including locale-specific decimal separators (e.g., commas in European formats).
-- Calculation of Z-scores for MM/GBSA binding energies based on the dataset mean and standard deviation.
-- Filtering of statistically significant compounds using a user-defined threshold (default: Z ≤ -1.96).
-- Automated output of:
-  - A CSV file listing significant compounds and their Z-scores;
-  - A structured PDF report summarizing the selected ligands;
-  - A high-resolution plot of the standard normal distribution with the threshold marked;
-  - An empirical MM/GBSA energy distribution plot highlighting the last molecule’s score.
+The **MM/GBSA Z-Score Analysis Tool** evaluates the statistical significance of binding free energies (in CSV format) derived from MM/GBSA calculations. It is designed to assist in the prioritization of candidate compounds following MM/GBSA (re)scoring stages in VS workflows.
+
+Key features:
+- Robust parsing of numerical values, with support for locale-specific decimal formats (e.g., comma separators in European datasets).
+- Computation of Z-scores for each compound based on the mean and standard deviation of the entire MM/GBSA energy distribution.
+- Filtering of statistically significant hits using a customizable Z-score threshold (default: Z ≤ –1.960).
+- Automated generation of result files, including:
+  - A CSV file containing compounds passing the statistical threshold, along with their Z-scores;
+  - A structured, tabular PDF report summarizing the filtered compounds;
+  - A high-resolution plot of the standard normal distribution with the selected threshold indicated;
+  - A distribution plot of MM/GBSA energies with the last processed molecule's score annotated.
 
 # Suggested Z-score Thresholds
-The script supports statistical filtering based on two-tailed Z-score significance levels. Depending on the desired confidence level, the corresponding absolute Z-score threshold (|Z|) can be selected as follows:
+The script applies statistical filtering using two-tailed Z-score thresholds. The appropriate absolute Z-score (|Z|) can be selected based on the desired confidence level, as outlined below:
 
 - For 50% confidence, use a threshold of |Z| ≥ 0.674
 - For 75% confidence, use |Z| ≥ 1.150
@@ -25,7 +25,7 @@ The script supports statistical filtering based on two-tailed Z-score significan
 - For 99% confidence, use |Z| ≥ 2.576
 - For 99.9% confidence, use |Z| ≥ 3.290
 
-**These values correspond to the standard normal distribution under two-tailed statistical testing and can be adjusted in the script to meet specific confidence requirements.
+**These thresholds are based on the standard normal distribution for two-tailed significance testing and can be modified in the script to accommodate different confidence levels as required by the analysis.
 
 # Requirements & Installation
 
@@ -45,11 +45,11 @@ Install via pip:
 # Usage
 Place the input CSV file (default name: FILE_NAME.csv) in the same directory as the script and run the following command in your terminal:
 
-> python docking-zscore-analysis.py
+> python mmgbsa_zscore_analysis.py
 
-**All generated artefacts - including the filtered CSV file, summary PDF report, and high-resolution PNG figures - will be automatically saved to the current working directory.
+**All output files, including the filtered CSV containing statistically significant compounds, the PDF summary table, and the high-resolution distribution plots, are saved automatically in the working directory when the script is run.
 
-Note: The script uses a default Z-score threshold of -1.960 to select statistically significant compounds. You may edit the script to adjust this threshold as needed.
+Note: The default Z-score threshold is set to –1.960, corresponding to a 95% confidence level. This value can be modified directly in the script to apply different statistical significance criteria depending on the analysis requirements.
 
 # Citation
 If you use this tool in your academic work, please cite:
