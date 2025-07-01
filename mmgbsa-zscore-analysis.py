@@ -1,14 +1,13 @@
 """
-###############################################################################
+################################################################################################################################
 Title: MM/GBSA Z-Score Analysis Tool
 
 Developed by: Mine Isaoglu, Ph.D.
 Principal Investigator: Serdar Durdagi, Ph.D.
-Affiliation: Computational Drug Design Center (HITMER), Faculty of Pharmacy,
-             Bahçeşehir University, Istanbul, Turkey
+Affiliation: Computational Drug Design Center (HITMER), Faculty of Pharmacy, Bahçeşehir University, Istanbul, Turkey
              
 Version: January 2025
-################################################################################
+#################################################################################################################################
 """
 
 import csv
